@@ -55,6 +55,16 @@ label start:
             $pronoun3 = "their"
             $pronoun4 = "are"
 
+    python:
+        if not pronoun1:
+            pronoun1 = "they"
+        if not pronoun2:
+            pronoun2 = "them"
+        if not pronoun3:
+            pronoun3 = "their"
+        if not pronoun4:
+            pronoun4 = "are"
+
     scene bg hallway
     with Dissolve(0.75)
 
@@ -82,11 +92,11 @@ label start:
     scene bg hallway
     show missy concerned
 
-    pause 0.75
-
     "You turn around to see your friend Missy standing in front of the door."
 
-    "She is in her usual accessories-"
+    "She is in her usual accessories. Shades she never wears for her eyes, maybe using them as an illusion for extra inches to her height..."
+    "...a weird silk fabric thing on her neck with intricate designs of green flowers, and a bag slung around her shoulders..."
+    "...which I'm sure is only big enough to hold a phone and a wallet."
 
     player "Hey, Missy. Where you off to?"
 
@@ -113,64 +123,86 @@ label start:
     "Missy sighs, following you back into the classroom."
     "Before you could follow Missy as she joins the other two girls in the club, that cheerful girl from a while ago gently places her hand over your shoulder."
 
+    scene bg classroom3_4_view
+    with Dissolve(1.0)
+
+    show joy
+    with Dissolve(0.5)
     "???" "Alright, girls! This is our new member! Yung kinukwento ko sa group chat! Say hello, [playername]."
 
-    "She urgers. Her eyes are bright, gloating with the kind of life most people lose once they finish elementary."
+    "She urges. Her eyes are bright, gloating with the kind of life most people lose once they finish elementary."
     "There was a child-like wonder to her aura. The pink ribbons in her hair and the seamless blush make up only added more personality to her charming aura."
 
-    # scene bg - which classroom bg though
-    show joy normal
+    scene black
+    with Dissolve(0.75)
+    pause(0.75)
     "Joy. The baking club's bright Joy. The baking club’s bright and energetic president."
     "Everyone on campus knows her. Twin sister to the most popular guy on campus, Jared. Both the twins are admired for their exceptional skills in sports, music, academics, and most importantly, culinary arts."
     "According to school rumors, the only reason Joy established the baking club is because her twin brother founded the cooking club, and she didn’t want to be outshone by him. Their friendly sibling rivalry is a well known thing around campus."
 
-    show kath
+    scene bg classroom3_4_view
+    show kath at leftish
     "???" "Oh wow, our first boy."
 
     "The tallest girl giggles. Her friend nudges her side."
 
-    show daisy
+    show daisy at rightish behind kath
     "???" "Kathryn..."
 
     "The meek girl next to her scolds."
     "Kathryn looks at her friend with fond eyes, attempting to reassure her that the jab to my gender was not a big deal- which really, it was not."
 
-    player "Don't worry, I don't mind. ALthough, parang kulang nga tayo sa members..."
+    player "Don't worry, I don't mind. Although, parang kulang nga tayo sa members..."
 
-    pause 0.5
+    hide daisy and kath
+    with Dissolve(0.75)
 
     "\(I didn't tell anyone but, this was one of the reasons I joined this club. Other than being interested because of the desserts I often stole from Missy during recess.\)"
     "\(The cherry on top was that there were so few members. I never enjoyed being in a room with a lot of people.\)"
     "\(If I had to socialize, I'd prefer to do so in a small bubble.\)"
     "\(But I feigned confusion anyway, pretending I was never aware of their lack of members.\)"
 
+    show missy
+    with Dissolve(0.75)
     missy "That's because everyone's at the cooking club."
 
+    show joy angry at right
     joy "*groans*"
 
+    show kath at left behind missy
     kath "Oh, don't listen to Missy. Half his members can't cook to save their libes, diba? It's about quality, not quantity!"
 
     "The girls next to Kathryn nod in unison, comforting Joy. Joy then claps her hands together to command attention."
 
+    show joy
     joy "Alright, back to business! Since [pronoun1]'s bago siya dito, why don't we all introduce each other?"
 
+    hide missy
+    hide kath
+    show joy at center
     joy "Ako muna. Hai hai! My name is Joy Jacinto, kilala mo na ako because of, well, the whole club switching ordeal. I'm the club president!"
 
+    hide joy
     "Kathryn then steps forward."
 
-    show kath
+    show kath at center
     kath "Hello, I'm Kathryn Cruz. 11th grade STEM, classmates with Daisy here. I joined as magaling ako sa sugar arts, and I love sweet smells. I'm the club's treasurer."
 
     "Kathryn then looks at Daisy, and so the meeker girl steps forward."
 
+    hide kath
+    show daisy
     daisy "Hi... I'm Daisy Li. I'm the club's secretary and... Sumali lang ako dahil sumali si Kathryn..."
 
     "Daisy said with a shy smile. Probably feeling her reason for joining wasn't a good one."
 
     "I chuckled, feeling comfort knowing I’m not the only member with an unrelated reason to join a baking club."
 
+    hide daisy
+    with Dissolve(0.75)
     "Heck, I couldn't even bake a pancake if I tried. Or was that cooking? Are pancakes just cakes that can be cooked?"
 
+    show missy annoyed at center
     missy "*coughs*"
 
     missy "And you already know who I am. Missy Mendoza, joined because i *can bake*, and kaibigan ko si Joy. Ako ang vice president dito."
@@ -178,6 +210,7 @@ label start:
     "Missy said, already knwoing first-hand how bad my baking skills are. One time at her place, I didn't know the difference between a teaspoon and a tablespoon."
     "I made the saltiest cupcakes ever."
 
+    show joy at right
     joy "Meaning, may silbi lang siya pag nag absent ako. Which is never happening on my perfect attendance."
 
     "Joy said proudly."
