@@ -27,7 +27,7 @@ label start:
         playerfullname = playerfullname.strip()
 
         if not playerfullname:
-            playerfullname = "John Dela Cruz"
+            playerfullname = "Juan Dela Cruz"
 
         playername = renpy.input("What is your nickname?", length=12)
         playername = playername.strip()
