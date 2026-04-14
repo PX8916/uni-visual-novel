@@ -23,40 +23,40 @@ label start:
 
     # Ask for the player's name.
     python:
-        #playerfullname = renpy.input("Before we begin the story, what is your full name?", length=48)
-        #playerfullname = playerfullname.strip()
+        playerfullname = renpy.input("Before we begin the story, what is your full name?", length=48)
+        playerfullname = playerfullname.strip()
 
-        #if not playerfullname:
+        if not playerfullname:
             playerfullname = "Juan Dela Cruz"
 
-        #playername = renpy.input("What is your nickname?", length=12)
-        #playername = playername.strip()
+        playername = renpy.input("What is your nickname?", length=12)
+        playername = playername.strip()
 
-        #if not playername:
+        if not playername:
             playername = "Juan"
 
-    #"What are your pronouns?"
-    #menu:
-    #    "He/Him":
-    #        $pronounthey = "he"
-    #        $pronounthem = "him"
-    #        $pronountheir = "his"
-    #        $pronounare = "is"
-    #        $pronountheyre = "he's"
-#
-    #    "She/Her":
-    #        $pronounthey = "she"
-    #        $pronounthem = "her"
-    #        $pronountheir = "her"
-    #        $pronounare = "is"
-    #        $pronountheyre = "she's"
-#
-    #    "They/Them":
-    #        $pronounthey = "they"
-    #        $pronounthem = "them"
-    #        $pronountheir = "their"
-    #        $pronounare = "are"
-    #        $pronountheyre = "they're"
+    "What are your pronouns?"
+    menu:
+        "He/Him":
+            $pronounthey = "he"
+            $pronounthem = "him"
+            $pronountheir = "his"
+            $pronounare = "is"
+            $pronountheyre = "he's"
+
+        "She/Her":
+            $pronounthey = "she"
+            $pronounthem = "her"
+            $pronountheir = "her"
+            $pronounare = "is"
+            $pronountheyre = "she's"
+
+        "They/Them":
+            $pronounthey = "they"
+            $pronounthem = "them"
+            $pronountheir = "their"
+            $pronounare = "are"
+            $pronountheyre = "they're"
 
     python:
         #if not pronounthey:
@@ -567,35 +567,28 @@ label start:
                     $choice_no3 = 4
                     jump choice_no3_4
 
-            label choice_no3_1:
-                "Let's do Swiss!"
-
-                jump choice_no3_done
-
-            label choice_no3_2:
-                "The Italian technique sounds cool."
-
-                jump choice_no3_done
-
-            label choice_no3_3:
-                "How about the Indian way?"
-
-                jump choice_no3_done
-
-            label choice_no3_4:
-                "Does it really matter?"
-
-                jump choice_no3_done
-            
-            label choice_no3_done:
-                "WIP"
-                jump choice_no2_done
+        label choice_no3_1:
+            "Let's do Swiss!"
+            jump choice_no3_done
+        label choice_no3_2:
+            "The Italian technique sounds cool."
+            jump choice_no3_done
+        label choice_no3_3:
+            "How about the Indian way?"
+            jump choice_no3_done
+        label choice_no3_4:
+            "Does it really matter?"
+            jump choice_no3_done
+        
+        label choice_no3_done:
+            "WIP - Choice No. 3 - Route A"
+            jump choice_no2_done
 
         label choice_no2_2:
-            "WIP"
+            "WIP - Choice No. 3 - Route B"
             jump choice_no2_done
         label choice_no2_done:
-            "WIP"
+            "WIP - Game End"
             # The game ends here.
 
             return
