@@ -8,6 +8,7 @@ define joy = Character("Joy")
 define kath = Character("Kathryn")
 define daisy = Character("Daisy")
 define missy = Character("Missy")
+define jared = Character("Jared")
 
 transform leftish:
     xalign 0.25
@@ -16,6 +17,14 @@ transform leftish:
 transform rightish:
     xalign 0.75
     yalign 1.0
+
+transform slide_left:
+#    xalign 1.0
+    linear 1.0 xalign 0.0
+
+transform slide_right:
+#    xalign 0.0
+    linear 1.0 xalign 1.0
 
 # The game starts here.
 
@@ -59,16 +68,16 @@ label start:
             $pronountheyre = "they're"
 
     python:
-        #if not pronounthey:
+        if not pronounthey:
             pronounthey = "they"
-        #if not pronounthem:
+        if not pronounthem:
             pronounthem = "them"
-        #if not pronountheir:
+        if not pronountheir:
             pronountheir = "their"
-        #if not pronounare:
+        if not pronounare:
             pronounare = "are"
-        #if not pronountheyre:
-            pronountheir = "they're"
+        if not pronountheyre:
+            pronountheyre = "they're"
 
     pause 1.0
     "Day 1"
@@ -98,7 +107,7 @@ label start:
     "???" "[playername]?"
 
     scene bg hallway
-    show missy concerned
+    show missy confused at center
 
     "You turn around to see your friend Missy standing in front of the door."
 
@@ -108,11 +117,12 @@ label start:
 
     player "Hey, Missy. Where you off to?"
 
+    show missy calm at center
     missy "The restroom. I'm just gonna comb my hair. How about you, what are you doing here? The poetry club is in the other building, 2nd floor. Did you take a wrong turn, or...?"
 
     player "Nope, No wrong turn here. I actually... quit the poetry club."
 
-    show missy shocked
+    show missy confused at center
 
     missy "You quit it? Mid-year? I didn't know that was allowed..."
 
@@ -120,10 +130,11 @@ label start:
 
     "At this point, Missy had a good guess as to where this was going. There was no other club on this floor but the baking club."
 
+    show missy irritated at center
     missy "Oh? Is that new club perhaps-"
 
-    show joy at rightish
-    show missy at leftish behind joy
+    show joy happy at rightish
+    show missy at leftish
 
     "???" "There you are, [playername]! Just in time, the gang's all here!"
 
@@ -132,7 +143,7 @@ label start:
     "Before you could follow Missy as she joins the other two girls in the club, that cheerful girl from a while ago gently places her hand over your shoulder."
 
     scene bg front_left
-    show joy
+    show joy happy at center
     with Dissolve(1.0)
 
     "???" "Alright, girls! This is the new member! The one I was talking about in the group chat! Say hello, [playername]."
@@ -148,14 +159,14 @@ label start:
     "According to school rumors, the only reason Joy established the baking club is because her twin brother founded the cooking club, and she didn't want to be outshone by him. Their friendly sibling rivalry is a well known thing around campus."
 
     scene bg front_left
-    show kath at leftish
+    show kath calm at leftish
     with Dissolve(0.75)
 
     "???" "Oh wow, our first boy."
 
     "The tallest girl giggles. Her friend nudges her side."
 
-    show daisy at rightish behind kath
+    show daisy irritated at center behind kath
     "???" "Kathryn..."
 
     "The meek girl next to her scolds."
@@ -172,28 +183,30 @@ label start:
     "\(If I had to socialize, I'd prefer to do so in a small bubble.\)"
     "\(But I feigned confusion anyway, pretending I was never aware of their lack of members.\)"
 
-    show missy
+    show missy happy
     with Dissolve(0.75)
     missy "That's because everyone's at the cooking club."
 
-    show joy angry at right
-    joy "*groans*"
+    show joy irritated at right
+    joy "{i}groans{/i}"
 
-    show kath at left behind missy
-    kath "Oh, don't listen to Missy. Half his members can't cook to save their lives, right? It's about quality, not quantity!"
+    show kath irritated at left
+    kath "Oh, don't listen to Missy. Half his members can't cook to save their lives, right?"
+    show kath happy at left
+    kath "It's about quality, not quantity!"
 
     "The girls next to Kathryn nod in unison, comforting Joy. Joy then claps her hands together to command attention."
 
-    show joy
+    show joy happy at right
     joy "Alright, back to business! Since [pronounthey]'s new here, why don't we all introduce each other?"
 
     hide missy
     hide kath
-    show joy at center
+    show joy happy at center
     joy "I'll go first. Hai hai! My name is Joy Jacinto, you've already met me because of, well, the whole club switching ordeal. I'm the club president!"
 
     hide joy
-    show kath at center
+    show kath smile at center
     "Kathryn then steps forward."
 
     kath "Hello, I'm Kathryn Cruz. 11th grade STEM, classmates with Daisy here. I joined since I'm great with sugar arts, and I love sweet smells. I'm the club's treasurer."
@@ -201,7 +214,7 @@ label start:
     "Kathryn then looks at Daisy, and so the meeker girl steps forward."
 
     hide kath
-    show daisy at center
+    show daisy happy at center
     daisy "Hi... I'm Daisy Li. I'm the club's secretary and... I only joined the club because Kathryn did so..."
 
     "Daisy said with a shy smile. Probably feeling her reason for joining wasn't a good one."
@@ -212,37 +225,80 @@ label start:
 
     "Heck, I couldn't even bake a pancake if I tried. Or was that cooking? Are pancakes just cakes that can be cooked?"
 
-    show missy annoyed at center
+    show missy irritated at center
     missy "*coughs*"
-    show missy
-    missy "And you already know who I am. Missy Mendoza, joined because i *can bake*, and I'm friends with Joy. I'm the vice president."
+    show missy happy
+    missy "And you already know who I am. Missy Mendoza, joined because i {b}can bake{/b}, and I'm friends with Joy. I'm the vice president."
 
     "Missy said, already knowing first-hand how bad my baking skills are. One time at her place, I didn't know the difference between a teaspoon and a tablespoon."
     "I made the saltiest cupcakes ever."
 
-    show joy at right
+    show joy happy at right
     joy "Meaning, she's only useful when I'm absent. Which is never happening on my perfect attendance."
 
     "Joy said proudly."
 
     "Now that everyone else spoke, I guess it was my turn."
 
+    menu:
+        "(Name, Grade, why I joined)":
+            $choice_no1 = 1
+            jump choice_no1_1
+        "(Name, Hobbies, irritate Missy)":
+            $choice_no1 = 2
+            jump choice_no1_2
+        "(Name, interests, gossip about poetry club)":
+            $choice_no1 = 3
+            jump choice_no1_3
+
+label choice_no1_1:
     player "Hi. I'm [playerfullname]. 11th grade HUMSS, and I joined because things were getting a bit too dramatic back at poetry club..."
     player "I thought Missy had a really cool club and so I just copied her. No escaping me, Missy."
 
     "I joked, watching my poor friend groan. I'd almost feel bad if it weren't so funny."
 
+    show missy irritated
+    missy "Why am I still friends with you."
+
+    "I wink in response."
+    jump choice_no1_done
+
+label choice_no1_2:
+    player "Hi. I'm [playerfullname]. My hobbies are journaling, reading manga, and taking free snacks from Missy."
+
+    "I said with a playful smile while side eyeing my friend."
+
+    show missy smile
     missy "Well, since you're already here, you have no reason to be stealing my snacks. I make them here, anyway."
 
     player "Haha, no promises."
+    jump choice_no1_done
 
+label choice_no1_3:
+    player "Hi. I'm [playerfullname]. And well... I'm interested in writing and reading manga."
+    player "It's kind of why I was in the poetry club."
+
+    show kath smile at left
+    kath "Ow, that's cool. But why did you quit?"
+
+    player "A lot of drama... don't let this spread, but ever since i joined, the members there have been going crazy."
+    player "Their vice president would just skip meetings to hang out, who knows where..."
+    player "...this tall girl would read the weirdest books that were both explicit and gory..."
+    player "...this other girl kept popping her joins while reading, and their president? Total control freak."
+
+    show kath confused
+    kath "Oh my..."
+    jump choice_no1_done
+
+label choice_no1_done:
     hide joy
     hide missy
+    hide kath
     with Dissolve(0.75)
 
     "After the whole introduction, Joy gestures to me to take a seat. She then went straight into leader mode."
 
-    show joy at center
+    show joy happy at center
     joy "Okay everyone! As you all know, next week is Halara! So we need to brainstorm ideas for what our club will present for the Halara fair."
 
     "Ah yes. Halara. Now an annual thing in our school that just started a year ago from the old senior high student council."
@@ -251,345 +307,122 @@ label start:
     "The winner not only gets a perfect mark for the club grades, but also a 800 peso gift card for the canteen. And a trophy too I guess."
 
     show joy at rightish
-    show kath at leftish
+    show kath happy at leftish
 
     kath "Oh, why don't we just hold a mini cafe with cute miniature sweets and pastries!"
 
-    show daisy at left
-
+    show daisy confused at left
     daisy "Didn't the baking club do that last year?"
 
+    show joy confused
     joy "Right, and that only got us 5th place. I like the idea, but maybe we should have something bolder?"
 
-    show missy at right
-
+    show missy calm at right
     missy "Parlor games?"
 
     player "And what does that have to do with baking?"
 
+    show missy irritated
     missy "I don't know, the food court could be a prize, maybe."
 
     player "Hard pass."
 
     "I was already feeling a bit too comfortable in this club."
 
+    show daisy calm
     daisy "You know, I kinda liked that idea of a cafe..."
 
+    show joy irritated
     joy "Yeah, but the cooking club is going to set up a cross dressing alfresco mini restaurant thing. I don't want our presentation to look like the basic or boring version of that."
 
-    daisy "Cross dressing? That's some advertising."
+    show kath confused
+    kath "Cross dressing? That's some advertising."
 
+    show missy happy
     missy "I know I'm going."
 
     "The two girls smirked shamelessly. I'd be lying if I said I wasn't interested myself."
 
+    show joy irritated
     joy "Girls. Focus."
 
     "...after gathering enough courage, Daisy spoke up again."
 
+    show daisy calm
     daisy "Then... maybe ours could be themed too. Like, woodland fae themed."
 
+    show kath happy
     kath "OMG, yes! That sounds so adorable!"
 
+    show joy sad
     joy "I don't know..."
 
     player "Maybe we could attract more attention if we have fancy sweets and pastries too?"
 
+    show kath happy
     kath "Yes yes yes! We could have like eclairs, madeleines, cream puffs..."
 
     "As Kathryn kept listing french pastries, Missy leaned in and whispered to me."
 
+    show missy smile
     missy "I can't bake puff pastries to save my life."
 
     "I chuckled before leaning in."
 
     player "I thought you knew how to bake."
 
+    show missy irritated
     missy "I do know how to bake. I just have struggles with airy stuff. At least she didn't say macarons."
 
     "Kathryn then turned to Missy, her eyes wide and attentive like a hawk. Her smile was anything but comforting!"
 
+    show kath happy
     kath "That's a perfect idea! Macarons! Our main will be maracons!"
 
+    show missy sad
     missy "Wait! But that's not what-"
 
+    show daisy happy
     daisy "Macarons really do taste good..."
 
+    show joy happy
     joy "I love the idea!"
 
     player "What a nice suggestion, Missy!"
 
     "I added to the jab while she was visibly wincing..."
 
+    show joy happy
     joy "Well then. Since we are all on board, it's decided! We will hold a mini fae themed cafe with our main desserts being macarons accompanied with other french pastries!"
 
     "As most of us cheered, excluding my friend next to me, Joy then asked a very important question."
 
+    show joy smile
     joy "So, Kathryn. You'll teach us how to make macarons tomorrow, yes?"
 
+    show kath confused
     kath "Oh, um..."
 
     "She turns away slightly with a nervous smile."
 
+    show kath happy
     kath "I don't know how to make macarons… but the others, I can bake! Maybe one of you girls knows how?"
 
+    show daisy confused
     daisy "Uhm..."
 
+    show missy smile
     missy "Nope."
 
     player "Oh, uh..."
 
+    show joy smile
     joy "I see… Well then, we still have a week. Looks like we'll just have to practice making macarons!"
     joy "I believe we can do this!"
 
+    show joy happy
+    show missy happy
+    show kath happy
+    show daisy happy
     "Everyone" "Yeah!"
-
-    scene black
-    with Dissolve(0.75)
-
-    pause 0.75
-    "Day 2"
-
-    scene bg gate
-    with Dissolve(0.75)
-
-    "It was a fresh morning. The sun was up high, the light bathing the school in its soft hue."
-    "Which means I'm late. 8 AM."
-
-    show missy at center
-    missy "Tsk tsk tsk. Late again?"
-
-    "My friend scolds me. Waiting in the guard house. After tappign my ID, I walk up to her."
-
-    player "What about you? Why are you here?" 
-
-    missy "I came here to get my P.E. shirt. Left it at home and had it lalamoved. Then I saw you so I thought I'd wait a little."
-
-    "I noticed she was holding a plastic bag. Must be where her P.E. uniform is, no doubt."
-
-    player "Let's go in together."
-
-    scene black
-    with Dissolve(0.75)
-
-    "She nodded and we waited side by side to the school."
-
-    scene bg field_for_booth
-    show missy at center
-    with Dissolve(0.75)
-
-    "While walking to our building, Missy speaks up."
-
-    missy "In just a week, our booth will be somewhere here."
-
-    player "Crazy how it's already the end of the first semester… So, what time will Kathryn be teaching us how to bake macarons?"
-
-    missy "Oh, Kathryn won't be teaching us."
-
-    player "Huh?"
-
-    missy "She said she'll be busy or something with Joy. Not sure. Oh right, I'll have to add you to the baking club group chat."
-
-    scene black
-    with Dissolve(0.75)
-
-    "Once we pass by her building, she waves me bye and we go our separate ways. I look down at my phone and see I was just added to the groupchat."
-
-    scene bg hallway
-    with Dissolve(0.75)
-
-    "After my last classes, I go straight to the club room."
-
-    show daisy surprised at rightish
-
-    daisy "Ack!"
-
-    "I accidentally bump into Daisy as she exits her classroom. Kathryn just behind her giggling softly."
-
-    show kath at leftish
-
-    kath "Ow, Daisy, are you okay?"
-
-    daisy "Y-yeah, I'm okay… "
-
-    show daisy flustered
-
-    daisy "Daisy: oh- Oh, OH! (player) I'm so sorry! Are you hurt? I didn't mean to! I wasn't looking and i was mid chat with Daisy and I just…"
-    menu:
-        "It's alright, Daisy.":
-            $choice_no1 = 1
-            jump choice_no1_1
-        "Why were you in a rush?":
-            $choice_no1 = 2
-            jump choice_no1_2
-        "Uhhhhh":
-            $choice_no1 = 3
-            jump choice_no1_3
-
-    label choice_no1_1:
-        player "Haha, It's alright Daisy. It's not like I got hurt. How about you? Are you okay?"
-        daisy "Oh, yes... I'm alright. I'm sorry again for bumping into you."
-        "Daisy shyly tucks a loose strand of hair behind her ear. Looking off to the side, perhaps hoping her friend could interfere with the sudden awkward cadence in the air."
-        jump choice_no1_done
-    label choice_no1_2:
-        player "Why were you in a rush? What if I was holding something."
-        daisy "Right! I'm sorry- I'm so… I'm- I didn't mean to..."
-        kath "It's alright, Daisy."
-        "Kathryn said, glaring at me before her hands found Daisy's shoulders in hopes to steady her shaking friend. But it was her fault in the first place to not be looking where you're going."
-        "Honestly, she should be more careful. Daisy then coughed to redirect the attention back to her."
-        jump choice_no1_done
-    label choice_no1_3:
-        player "Uhhhhh UHHHHHHHHHHHH no no its okay i just... uhhhhhhhhh..."
-        "Both Daisy and Kathryn chuckles at my flustered response. My lack of better social skills is becoming painfully obvious."
-
-    label choice_no1_done:
-        show daisy
-        kath "Anyways... I'm guessing you're also on your way to LV 304?"
-
-        player "Yeah. Wanna walk with?"
-
-        "The two girls looked at each other for a few seconds before nodding. It's not like they had much of a choice anyways since I was already here and we were all going the same way."
-        "What are they going to do? Say no? That would go against social conventions."
-        
-        scene bg front_left
-        with Dissolve(0.75)
-
-        "As we entered the classroom, I saw Missy on her phone watching some tutorial on macarons with an unamused look in her eyes, and Joy in front of the white board contemplating the list written on it."
-
-        "Joy turned around seeing us enter. She clapped her hands together with a ready look on her face."
-
-        show joy at leftish
-        "Joy: Great! You're all here! Okay everyone. Today is an important day. Day 1 of macaron making! But also day 1 for ingredient prepping for the other baked goods. Kath, you're with me."
-
-        show kath at rightish
-        "Kathyrn nods in response."
-
-        joy "Then the rest of you will stay to practice on the macarons without us."
-
-        "Joy then gestured to the blue plastic bags with a large SM logo. From where I'm standing, I could see flour, sugar, eggs, and small glass bottles. Maybe those being dye or flavorings."
-
-        joy "The equipment is all at the TLE lab. I already got permission from Miss Ange to use the room."
-
-        hide joy
-        hide kath
-        with Dissolve(0.75)
-
-        "Missy and Daisy seemed to share the same expressions, but both for different reasons."
-
-        "Missy was looking off to the side annoyed. Still not fully on board with the macaron plan. While Daisy wa`s looking off to the side anxious, probably hoping the first attempt goes well."
-
-        "Kathryn then realised something while looking at the list of ingredients on the wall. She turned to Joy."
-
-        show kath at leftish
-        kath "Joy?"
-
-        show joy at rightish
-        joy "Hmm?"
-
-        kath "I think that's a lot on the list... won't it be a lot for just the two of us to get?"
-
-        "Joy turned back to the list. It wasn't a lot of ingredients, the problem was everything else. The decorations, the packaging, and the weight of all those ingredients."
-        "The once so cheery girl now seemed perplexed. She rubbed her chin and thought about it."
-
-        joy "Maybe we do need another hand… oh, (player), do you think you could help us? I'm sure Missy and Daisy will be fine on their own making macarons. We will still make macarons today, just after we do some shopping."
-        menu:
-            "I don't know...":
-                $choice_no2 = 1
-                jump choice_no2_1
-            "Sure! Why not?":
-                $choice_no2 = 2
-                jump choice_no2_2
-
-        label choice_no2_1:
-            player "I don't know... sorry girls it's a a no. It's so hot today, I'd rather suffer in the aircon than outside, haha."
-            "Joy sighs."
-            
-            kath "It is hot today..."
-
-            joy "Hey! Don't worry, Kath, we got this!"
-
-            "Joy said with her usual energetic charm, just lighting up the room. Kathryn smiled to her friend and looked more determined than ever."
-
-            joy "Alright then y'all! I'll just give Miss Ange a call and we should be allowed to go to the TLE room right now."
-
-            scene bg cooking_room
-            with Dissolve(0.75)
-
-            "Moments later, me and the rest of the club enter the TLE lab. The room's aricon was thankfully already on and all the equipment we needed was on the counter ready for Daisy and Missy to use."
-            "Other things were present here too; table stoves, a microwave, whisks, spatulas, and even mittens."
-
-            show missy at left
-            missy "This room would make a way better room for the baking club than that random classroom."
-
-            "Missy remarked while looking around. Her fingers gliding against the cool countertops. She brought her fingers up and smiled. She always loved clean surfaces."
-            show daisy at leftish
-            "Daisy nodded beside her."
-
-            show kath at rightish
-            kath "Oh gosh..."
-
-            show joy at right
-            "Joy then broke that peaceful illusion with a clap of her hands. Immediately demanding attention back to her."
-            "Like a horror monster dragging away its victim into the dark, Joy grabbed Kathryn's wrist and pulled the poor girl away into the heat of near midday."
-
-            hide joy
-            hide kath
-            with Dissolve(0.75)
-
-            "Missy then went up to the macaron ingredients on the counter and looked at Daisy, then me."
-            "THe real challenge was about to start."
-
-            missy "Alright, let's start. Do we know anything?"
-
-            player "Nothing."
-
-            "I said, maybe a bit too confidently. That earned me a whack to the back of my head from my supposedly best friend."
-
-            player "Ow!"
-
-            daisy "I watched a few videos about different types of macaron making... theres like... french, swiss, indian, and Italian... right?"
-
-            "Daisy asked meekly. While I was still rubbing the nape of my neck, Missy nodded. She and Daisy both grabbed a bowl and I went off to get the stand mixers."
-
-            missy "What technique do you guys want to try? I think for the first attempt, we do the French method. But what do you suggest for the rest?"
-
-            menu:
-                "Let's do Swiss!":
-                    $choice_no3 = 1
-                    jump choice_no3_1
-                "The Italian technique sounds cool.":
-                    $choice_no3 = 2
-                    jump choice_no3_2
-                "How about the Indian way?":
-                    $choice_no3 = 3
-                    jump choice_no3_3
-                "Does it really matter?":
-                    $choice_no3 = 4
-                    jump choice_no3_4
-
-        label choice_no3_1:
-            "Let's do Swiss!"
-            jump choice_no3_done
-        label choice_no3_2:
-            "The Italian technique sounds cool."
-            jump choice_no3_done
-        label choice_no3_3:
-            "How about the Indian way?"
-            jump choice_no3_done
-        label choice_no3_4:
-            "Does it really matter?"
-            jump choice_no3_done
-        
-        label choice_no3_done:
-            "WIP - Choice No. 3 - Route A"
-            jump choice_no2_done
-
-        label choice_no2_2:
-            "WIP - Choice No. 3 - Route B"
-            jump choice_no2_done
-        label choice_no2_done:
-            "WIP - Game End"
-            # The game ends here.
-
-            return
-    
+    jump day2start
