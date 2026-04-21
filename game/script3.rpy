@@ -294,12 +294,14 @@ label choice_no9_1plus:
     missy "Stop whining. Let's start making these stupid cookies."
 
     scene bg cooking_room
+    with Dissolve(0.75)
 
     "Now that all things have come back to normal, me and Missy entered a sort of flow state in making these macarons."
     "We were locked in making sure this batch, our second batch, was going to be perfect."
 
     "While Missy was sifting the dry ingredients, she turned to me."
 
+    show missy smile
     missy "Got any plans after school?"
     menu:
         "Nah, not really.":

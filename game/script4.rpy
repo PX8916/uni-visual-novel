@@ -23,7 +23,7 @@ label day4start:
     pause 0.75
     "Day 4"
 
-    scene bg classroom_3_4_view
+    scene bg classroom3_4_view
     with Dissolve(0.75)
     "Today was the day just before the festival, and everyone has been acting off lately... But, as always, I must move on."
     "I have to pick a friend to help with the preparations... Who should I pick?"
